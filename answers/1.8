@@ -1,0 +1,19 @@
+docker run -d -p 5000:5000 -e environment=development lilyy200/td3mlopsdocker:v1
+
+
+
+What Happens Before the Image Starts?
+When you run the docker run command for an image that's not present locally but is available in a Docker registry (like Docker Hub), Docker performs the following steps:
+
+Pulls the Image: Docker checks your local image cache to see if the requested image and tag are already downloaded. If not, Docker automatically pulls the image from Docker Hub (or whichever registry the image is located in).
+
+Creates a Container: Once the image is pulled, Docker creates a new container based on that image.
+
+Starts the Container: Docker then starts the container in detached mode (-d) as specified. This means the container runs in the background.
+
+Maps Ports: The -p 5000:5000 option maps port 5000 of the container to port 5000 on the host, allowing you to access the application via the host's IP address and specified port.
+
+Sets Environment Variables: The -e CURRENT_ENVIRONMENT=development option sets the CURRENT_ENVIRONMENT environment variable inside the container to development.
+
+Ensuring the Container Runs in Detached Mode
+The -d flag in the docker run command ensures that the container runs in detached mode. This means it runs in the background, and closing the terminal won't stop it.
