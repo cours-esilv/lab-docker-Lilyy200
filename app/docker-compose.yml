@@ -7,6 +7,20 @@ services:
     environment:
       - CURRENT_ENVIRONMENT=development
       - FLASK_APP=app/back/app.py
+    volumes:
+      - ./data:/app/data
+    networks:
+      - app-network
+  
+  frontend-service:
+
+    image: lilyy200/front-end:v1 # Use the correct image for your front-end
+    ports:
+      - "8080:80" # Map the port 80 from the container to 8080 on the host
+    environment:
+      - WS_BACK_URL=http://backend-service:5000 # Point to the backend-service
+    depends_on:
+      - backend-service
     networks:
       - app-network
 
