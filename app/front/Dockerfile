@@ -1,5 +1,8 @@
 FROM nginx:alpine
 
+# Install bash
+RUN apk add --no-cache bash
+
 # Set the environment variable for the backend URL
 ENV WS_BACK_URL http://backend-service:5000
 

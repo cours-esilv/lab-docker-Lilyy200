@@ -1,0 +1,1 @@
+docker run -d --net=my_network -p 8080:80 -e WS_BACK_URL=http://backend-container:5000 --name front-end-container lilyy200/front-end:v1
