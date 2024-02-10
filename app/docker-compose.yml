@@ -1,0 +1,15 @@
+version: '3'
+services:
+  backend-service:
+    image: lilyy200/td3mlopsdocker:v1
+    ports:
+      - "5000:5000"
+    environment:
+      - CURRENT_ENVIRONMENT=development
+      - FLASK_APP=app/back/app.py
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
