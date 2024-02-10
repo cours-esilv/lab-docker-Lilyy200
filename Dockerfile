@@ -11,10 +11,10 @@ COPY ./app/back/requirements.txt /app/
 RUN pip install -r requirements.txt
 
 # Etape 5: Copier le reste du code de l'application
-COPY . /app/back
+COPY . /app/back /app/
 
 # Just before CMD line
-ENV FLASK_APP=back/app.py
+ENV FLASK_APP =back/app.py
 
 EXPOSE 5000
 
